@@ -1,16 +1,19 @@
-// function makePizza (toppings = []) {
-//      const pizzaPromise = new Promise (function (resolve, reject){
-//         const amountOfTimeToBake = 500 + (toppings.length * 200)
-//         //Wait one second for pizza to cook
-//         setTimeout(function(){
-//             resolve(`Here is your pizza with toppings ${toppings.join(" ")}`)
+function makePizza (toppings = []) {
+     return new Promise (function (resolve, reject){
+        // Toppings if people try with pineapple
+        if(toppings.includes("pineapple")){
+            reject("Seriously? Get out!")
+        }
+        const amountOfTimeToBake = 500 + (toppings.length * 200)
+        //Wait one second for pizza to cook
+        setTimeout(function(){
+            resolve(`Here is your pizza with toppings ${toppings.join(" ")}`)
 
-//         }, amountOfTimeToBake)
-//         // When you are ready, you can resolve this promise
-//         //If something went wrong, we can reject this promise
-//      });
-//      return pizzaPromise;
-// }
+        }, amountOfTimeToBake)
+        // When you are ready, you can resolve this promise
+        //If something went wrong, we can reject this promise
+     });
+}
 // console.log("First")
 // makePizza(["broccoli", "artichoke"])
 //     .then(function(pizza){
@@ -54,26 +57,26 @@
 // })
 
 
-function makeBurger (inside=[]) {
-    return new Promise (function (resolve, reject){
-        const timeToMakeBurger = 500 + (inside.length *200);
-        setTimeout(function(){
-            resolve(`Here is your burger with ${inside.join(" ")}`)
-        }, timeToMakeBurger);
-    });
-}
+// function makeBurger (inside=[]) {
+//     return new Promise (function (resolve, reject){
+//         const timeToMakeBurger = 500 + (inside.length *200);
+//         setTimeout(function(){
+//             resolve(`Here is your burger with ${inside.join(" ")}`)
+//         }, timeToMakeBurger);
+//     });
+// }
 
-const burgerPromise = makeBurger(["lettuce", "vegan patty", "tomato", "pickles", "vegan mayo", "mushrooms", "vegan patty", "tomato", "pickles", "vegan mayo", "vegan patty", "tomato", "pickles", "vegan mayo"]);
-const burgerPromise2 = makeBurger(["tomato", "vegan patty"]);
-const burgerPrpmise3 = makeBurger(["vegan patty"]);
+// const burgerPromise = makeBurger(["lettuce", "vegan patty", "tomato", "pickles", "vegan mayo", "mushrooms", "vegan patty", "tomato", "pickles", "vegan mayo", "vegan patty", "tomato", "pickles", "vegan mayo"]);
+// const burgerPromise2 = makeBurger(["tomato", "vegan patty"]);
+// const burgerPrpmise3 = makeBurger(["vegan patty"]);
 
-const burgersPromise = Promise.all([burgerPromise, burgerPromise2, burgerPrpmise3]);
-burgersPromise.then(function([bla, blabla, blablabla]){
-    console.log(bla, blabla, blablabla);
-})
+// const burgersPromise = Promise.all([burgerPromise, burgerPromise2, burgerPrpmise3]);
+// burgersPromise.then(function([bla, blabla, blablabla]){
+//     console.log(bla, blabla, blablabla);
+// })
 
-const fastestBurger = Promise.race([burgerPromise, burgerPromise2, burgerPrpmise3]);
-fastestBurger.then(burg=>console.log(burg))
+// const fastestBurger = Promise.race([burgerPromise, burgerPromise2, burgerPrpmise3]);
+// fastestBurger.then(burg=>console.log(burg))
 
 
 
