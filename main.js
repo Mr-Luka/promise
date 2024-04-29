@@ -85,3 +85,11 @@ makePizza(["vegan pepperoni", "pineapple"]).then(pizza=> {
     console.log(pizza)
 }).catch(handleError)
 
+const p1 = makePizza(["pep"]);
+const p2 = makePizza(["cucumber", "tomato", "pineapple"]);
+
+// making a MEGA promise
+const pizzaDinner = Promise.allSettled([p1, p2]);
+pizzaDinner.then(result=>{
+    console.log(result)
+});
