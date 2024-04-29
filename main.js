@@ -78,5 +78,9 @@ function makePizza (toppings = []) {
 // const fastestBurger = Promise.race([burgerPromise, burgerPromise2, burgerPrpmise3]);
 // fastestBurger.then(burg=>console.log(burg))
 
-
+makePizza(["vegan pepperoni", "pineapple"]).then(pizza=> {
+    console.log(pizza)
+}).catch(err=> {
+    console.log(err)
+})
 
